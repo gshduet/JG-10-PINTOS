@@ -1,7 +1,11 @@
 #ifndef VM_VM_H
 #define VM_VM_H
 #include <stdbool.h>
+
 #include "threads/palloc.h"
+
+/** Project 3: Memory Management */
+#include <hash.h>
 
 enum vm_type {
 	/* page not initialized */
@@ -45,7 +49,10 @@ struct page {
 	void *va;              /* Address in terms of user space */
 	struct frame *frame;   /* Back reference for frame */
 
-	/* Your implementation */
+	/** Project 3: Memory Management - Your implementation */
+    struct hash_elem hash_elem;
+    bool writable;
+    bool accessible; /** Project 3: Copy On Write (Extra) */
 
 	/* Per-type data are binded into the union.
 	 * Each function automatically detects the current union */
@@ -61,8 +68,11 @@ struct page {
 
 /* The representation of "frame" */
 struct frame {
-	void *kva;
-	struct page *page;
+    void *kva;
+    struct page *page;
+
+    /** Project 3: Memory Management - 리스트 객체 추가  */
+    struct list_elem frame_elem;
 };
 
 /* The function table for page operations.
@@ -85,6 +95,8 @@ struct page_operations {
  * We don't want to force you to obey any specific design for this struct.
  * All designs up to you for this. */
 struct supplemental_page_table {
+	/** Project 3: Memory Management - 해시 테이블 사용 */
+	struct hash spt_hash;
 };
 
 #include "threads/thread.h"

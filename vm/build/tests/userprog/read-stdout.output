@@ -13,17 +13,16 @@ Formatting file system...done.
 Boot complete.
 Putting 'read-stdout' into the file system...
 Executing 'read-stdout':
-Kernel PANIC at ../../userprog/process.c:77 in initd(): Fail to launch initd
-
-Call stack: 0x8004218629 0x800421bdb3 0x8004207803.
+Kernel PANIC at ../../lib/kernel/list.c:158 in list_insert(): assertion `is_interior (before) || is_tail (before)' failed.
+Call stack: 0x8004218629 0x8004218b72 0x8004218e1a 0x8004221437 0x80042215c5 0x80042215a6 0x800421cc5b 0x800421c7e0 0x800421c1cb 0x800421bd7a 0x8004207803.
 The `backtrace' program can make call stacks useful.
 Read "Backtraces" in the "Debugging Tools" chapter
 of the Pintos documentation for more information.
-Timer: 56 ticks
-Thread: 30 idle ticks, 26 kernel ticks, 0 user ticks
+Timer: 55 ticks
+Thread: 30 idle ticks, 25 kernel ticks, 0 user ticks
 hd0:0: 0 reads, 0 writes
-hd0:1: 39 reads, 232 writes
+hd0:1: 41 reads, 232 writes
 hd1:0: 102 reads, 0 writes
 hd1:1: 0 reads, 0 writes
-Console: 1151 characters output
+Console: 1300 characters output
 Key

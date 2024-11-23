@@ -15,17 +15,16 @@ Putting 'exec-read' into the file system...
 Putting 'sample.txt' into the file system...
 Putting 'child-read' into the file system...
 Executing 'exec-read':
-Kernel PANIC at ../../userprog/process.c:77 in initd(): Fail to launch initd
-
-Call stack: 0x8004218629 0x800421bdb3 0x8004207803.
+Kernel PANIC at ../../lib/kernel/list.c:158 in list_insert(): assertion `is_interior (before) || is_tail (before)' failed.
+Call stack: 0x8004218629 0x8004218b72 0x8004218e1a 0x8004221437 0x80042215c5 0x80042215a6 0x800421cc5b 0x800421c7e0 0x800421c1cb 0x800421bd7a 0x8004207803.
 The `backtrace' program can make call stacks useful.
 Read "Backtraces" in the "Debugging Tools" chapter
 of the Pintos documentation for more information.
-Timer: 58 ticks
-Thread: 30 idle ticks, 28 kernel ticks, 0 user ticks
+Timer: 59 ticks
+Thread: 30 idle ticks, 28 kernel ticks, 1 user ticks
 hd0:0: 0 reads, 0 writes
-hd0:1: 95 reads, 506 writes
+hd0:1: 97 reads, 506 writes
 hd1:0: 229 reads, 0 writes
 hd1:1: 0 reads, 0 writes
-Console: 1264 characters output
+Console: 1413 characters output
 Key

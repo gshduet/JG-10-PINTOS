@@ -1,7 +1,15 @@
 FAIL
-Kernel panic in run: PANIC at ../../userprog/process.c:77 in initd(): Fail to launch initd
-Call stack: 0x8004218629 0x800421bdb3 0x8004207803
+Kernel panic in run: PANIC at ../../lib/kernel/list.c:158 in list_insert(): assertion `is_interior (before) || is_tail (before)' failed.
+Call stack: 0x8004218629 0x8004218b72 0x8004218e1a 0x8004221437 0x80042215c5 0x80042215a6 0x800421cc5b 0x800421c7e0 0x800421c1cb 0x800421bd7a 0x8004207803
 Translation of call stack:
 0x0000008004218629: debug_panic (lib/kernel/debug.c:32)
-0x000000800421bdb3: initd (userprog/process.c:78)
+0x0000008004218b72: list_insert (lib/kernel/list.c:159)
+0x0000008004218e1a: list_push_back (lib/kernel/list.c:204)
+0x0000008004221437: vm_get_frame (vm/vm.c:149)
+0x00000080042215c5: vm_do_claim_page (vm/vm.c:202)
+0x00000080042215a6: vm_claim_page (vm/vm.c:197)
+0x000000800421cc5b: setup_stack (userprog/process.c:783)
+0x000000800421c7e0: load (userprog/process.c:526)
+0x000000800421c1cb: process_exec (userprog/process.c:245)
+0x000000800421bd7a: initd (userprog/process.c:76)
 0x0000008004207803: kernel_thread (threads/thread.c:469)

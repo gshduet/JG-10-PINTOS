@@ -191,7 +191,11 @@ void thread_test_preemption(void)
 		thread_current()->priority <
 			list_entry(list_front(&ready_list), struct thread, elem)->priority)
 	{
-		thread_yield();
+		/** Project 2: Panic 방지 */
+		if (intr_context())
+			intr_yield_on_return();
+		else
+			thread_yield();
 	}
 }
 
